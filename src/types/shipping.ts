@@ -2,7 +2,7 @@ export type SearchAddresssType = (cep: string) => Promise<void>;
 
 export type ShippingType = {
   searchAddresss: SearchAddresssType;
-  address: any;
+  address: ShippingDataType | null;
   shippingValue: number | null;
   error: string | null;
 }

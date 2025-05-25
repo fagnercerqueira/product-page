@@ -8,6 +8,7 @@ const Shipping = createContext<ShippingType>({
   error: null,
 });
 
+
 export const useShipping = () => useContext(Shipping);
 
 import { ReactNode } from "react";
@@ -15,7 +16,7 @@ import { ReactNode } from "react";
 export const Shippingrovider = ({ children }: { children: ReactNode }) => {
     const [address, setAddress] = useState<ShippingDataType | null>(null);
     const [shippingValue, setShippingValue] = useState<number | null>(null);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<string | null>(null);
 
     const searchAddresss: SearchAddresssType = async (cep: string) => {
         try {
@@ -31,8 +32,9 @@ export const Shippingrovider = ({ children }: { children: ReactNode }) => {
             setAddress(enderecoData);
 
             calcularFrete(enderecoData.uf);
-        } catch (error: any) {
-            setError(error.message || "Erro ao buscar CEP.");
+        } catch (error) {
+            console.error("Erro ao buscar CEP:", error);
+            setError("Erro ao buscar CEP.");
             setAddress(null);
             setShippingValue(null);
         }

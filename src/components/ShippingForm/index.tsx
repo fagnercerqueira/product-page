@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useShipping } from "@/contexts/shippingContext";
 import { cepFormatter, moneyFormatter } from "@/utils/formatter";
-interface HandleSubmitEvent extends React.FormEvent<HTMLFormElement> {}
+type HandleSubmitEvent = React.FormEvent<HTMLFormElement>;
 
 export default function ShippingForm() {
     const [cep, setCep] = useState("");
