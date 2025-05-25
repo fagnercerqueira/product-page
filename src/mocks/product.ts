@@ -1,6 +1,6 @@
-import type { Product } from "@/types/product";
+import type { ProductType } from "@/types/product";
 
-const product: Product = {
+const product: ProductType = {
     skuId: 76,
     available: true,
     name: "Moletom Blusão Prime",

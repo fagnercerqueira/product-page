@@ -2,10 +2,10 @@
 import { useEffect, useCallback, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from "next/image";
-import type { Product } from "@/types/product";
+import type { ProductType } from "@/types/product";
 import ProductGalleryThumb from './ProductGalleryThumb'
 
-type ProductGalleryProps = Pick<Product, "gallery" | "name">;
+type ProductGalleryProps = Pick<ProductType, "gallery" | "name">;
 
 export default function ProductGallery({gallery, name}: ProductGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState(0)

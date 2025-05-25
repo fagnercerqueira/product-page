@@ -1,22 +1,18 @@
 import { notFound } from 'next/navigation'
 import ProductDescription from '@/components/ProductDescription';
 import ProductGallery from '@/components/ProductGallery';
-import type { Product } from "@/types/product";
+import type { ProductType } from "@/types/product";
 import { Providers } from '@/app/providers';
+import product from "@/mocks/product";
  
-async function getProduct() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-  const res = await fetch(`${baseUrl}/api/product`, {
-    cache: 'force-cache',
-  })
-  const product: Product = await res.json()
-  if (!product) notFound()
-  return product
+async function getProduct(): Promise<ProductType> {
+  if (!product) notFound();
+  return product;
 }
 
 export default async function Home() {
 
-  const product: Product = await getProduct();
+  const product: ProductType = await getProduct();
 
   return (
     <Providers>
