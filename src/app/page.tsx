@@ -18,11 +18,14 @@ export default async function Home() {
   const product: Product = await getProduct();
 
   return (
-    <>
-      {product.name}
-      <ProductDescription/>
-      <ProductGallery/>
-    </>
+    <section className='flex justify-center items-center min-h-dvh gap-12 px-20 y-20 m-auto max-w-7xl'>
+      <div>
+        <ProductGallery gallery={product.gallery} name={product.name} />
+      </div>
+      <section className="container mx-auto px-6 pt-5 sm:pt-10 lg:pt-5 pb-20 lg:pb-5 lg:pr-0 lg:pl-7 xl:ml-1">
+        <ProductDescription {...product}/>
+      </section>
+    </section>
   )
 }
 
