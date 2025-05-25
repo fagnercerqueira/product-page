@@ -1,6 +1,6 @@
 import type { Product } from "@/types/product";
 import SkuSelector from "@/components/SkuSelector";
-
+import ShippingForm from "@/components/ShippingForm";
 const formatter = new Intl.NumberFormat("pt-BR", {
   style: "currency",
   currency: "BRL",
@@ -40,6 +40,7 @@ export default function ProductDescription(product: Product) {
                 }
             </div>
             <SkuSelector dimensions={dimensions} dimensionsMap={dimensionsMap} />
+            <ShippingForm />
         </>
     )
 }
