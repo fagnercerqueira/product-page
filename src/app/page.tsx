@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import ProductDescription from '@/components/ProductDescription';
 import ProductGallery from '@/components/ProductGallery';
-import type { ProductType } from "@/types/product";
+import type { Product } from "@/types/product";
 import { Providers } from '@/app/providers';
  
 async function getProduct() {
@@ -9,14 +9,14 @@ async function getProduct() {
   const res = await fetch(`${baseUrl}/api/product`, {
     cache: 'force-cache',
   })
-  const product: ProductType = await res.json()
+  const product: Product = await res.json()
   if (!product) notFound()
   return product
 }
 
 export default async function Home() {
 
-  const product: ProductType = await getProduct();
+  const product: Product = await getProduct();
 
   return (
     <Providers>

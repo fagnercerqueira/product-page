@@ -1,9 +1,9 @@
-import type { ProductType } from "@/types/product";
+import type { Product } from "@/types/product";
 import SkuSelector from "@/components/SkuSelector";
 import ShippingForm from "@/components/ShippingForm";
 import { moneyFormatter } from "@/utils/formatter";
 
-export default function ProductDescription(product: ProductType) {
+export default function ProductDescription(product: Product) {
 
     const { brand, name, description, price, bestPrice, dimensions, dimensionsMap } = product;
 
