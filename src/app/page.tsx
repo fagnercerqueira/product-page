@@ -5,7 +5,8 @@ import type { ProductType } from "@/types/product";
 import { Providers } from '@/app/providers';
  
 async function getProduct() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/product`, {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const res = await fetch(`${baseUrl}/api/product`, {
     cache: 'force-cache',
   })
   const product: ProductType = await res.json()
