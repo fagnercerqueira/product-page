@@ -19,7 +19,7 @@ export default async function Home() {
 
   return (
     <Providers>
-      <section className='flex justify-center items-center min-h-dvh gap-12 px-20 y-20 m-auto max-w-7xl'>
+      <section className='flex flex-col lg:flex-row justify-center items-center min-h-dvh gap-12 px-8 lg:px-20 y-20 m-auto max-w-7xl'>
         <div className="container xl:min-w-md max-w-3xl">
           <ProductGallery gallery={product.gallery} name={product.name} />
         </div>

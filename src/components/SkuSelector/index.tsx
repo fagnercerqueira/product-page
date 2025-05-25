@@ -62,7 +62,7 @@ function SkuSelector({ dimensions, dimensionsMap }: SkuSelectorProps) {
 
   return (
     <div className="flex-row mt-8 w-full">
-      <div className="grid grid-cols-2 w-full my-8 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 w-full my-8 gap-8">
         {skuSelectorData.map((dimension) => (
           <div key={dimension.slug} className="flex flex-col">
             <span className="text-sm font-bold text-white mb-4">{dimension.title}</span>
@@ -91,8 +91,8 @@ function SkuSelector({ dimensions, dimensionsMap }: SkuSelectorProps) {
         ))}
       </div>
 
-      <div className="flex">
-        <div className="quantity-container w-full bg-neutral-800 rounded-lg h-14 flex items-center justify-between px-6 lg:px-3 font-bold sm:mr-3 lg:mr-5 lg:w-1/3">
+      <div className="flex flex-col lg:flex-row gap-4">
+        <div className="quantity-container w-full bg-neutral-800 rounded-lg h-14 flex items-center justify-between px-6 lg:px-3 font-bold lg:w-1/3">
           <button onClick={decrease} className="transition-all text-white text-2xl leading-none font-bold mb-1 lg:text-3xl hover:opacity-60 cursor-pointer">-</button>
           <input
             min={1}
@@ -107,7 +107,7 @@ function SkuSelector({ dimensions, dimensionsMap }: SkuSelectorProps) {
           <button onClick={increase} className="transition-all text-white text-2xl leading-none font-bold mb-1 lg:text-3xl hover:opacity-60 cursor-pointer">+</button>
         </div>
 
-        <button className="transition-all w-full h-14 bg-primary rounded-lg lg:rounded-xl shadow-primary/50 shadow-2xl text-white flex items-center justify-center lg:w-3/5 hover:shadow-primary/80 hover:opacity-90 cursor-pointer">
+        <button className="transition-all w-full h-14 bg-primary rounded-lg lg:rounded-xl shadow-primary/50 shadow-2xl text-white flex items-center justify-center lg:w-2/3 hover:shadow-primary/80 hover:opacity-90 cursor-pointer">
           <i className="cursor-pointer text-white text-xl leading-0 pr-3">
             <SlBasket />
           </i>
