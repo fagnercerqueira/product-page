@@ -52,13 +52,13 @@ function SkuSelector({ dimensions, dimensionsMap } : SkuSelectorProps) {
                 </div>
 
                 <div className="flex">
-                    <div className="quantity-container w-full bg-neutral-800 rounded-lg h-14 mb-4 flex items-center justify-between px-6 lg:px-3 font-bold sm:mr-3 lg:mr-5 lg:w-1/3">
+                    <div className="quantity-container w-full bg-neutral-800 rounded-lg h-14 flex items-center justify-between px-6 lg:px-3 font-bold sm:mr-3 lg:mr-5 lg:w-1/3">
                         <button  onClick={decrease} className="transition-all text-white text-2xl leading-none font-bold mb-1 lg:text-3xl hover:opacity-60 cursor-pointer">-</button>
                         <input min={0} max={100} className="quantity focus:outline-none text-dark-blue bg-neutral-800 font-bold flex text-center w-full" type="number" name="quantity" value={qty} aria-label="quantidade" disabled/>
                         <button onClick={increase} className="transition-all text-white text-2xl leading-none font-bold mb-1 lg:text-3xl hover:opacity-60 cursor-pointer">+</button>
                     </div>
 
-                    <button  className="transition-all w-full h-14 bg-primary rounded-lg lg:rounded-xl mb-2 shadow-primary/50 shadow-2xl text-white flex items-center justify-center lg:w-3/5 hover:shadow-primary/80 hover:opacity-90 cursor-pointer">
+                    <button  className="transition-all w-full h-14 bg-primary rounded-lg lg:rounded-xl shadow-primary/50 shadow-2xl text-white flex items-center justify-center lg:w-3/5 hover:shadow-primary/80 hover:opacity-90 cursor-pointer">
                         <i className='cursor-pointer text-white text-xl leading-0 pr-3'>
                             <SlBasket/>
                         </i>

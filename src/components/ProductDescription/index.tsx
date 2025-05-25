@@ -28,7 +28,7 @@ export default function ProductDescription(product: Product) {
                             <span className="text-3xl sm:text-4xl text-very-dark-blue">
                                 {formatter.format(bestPrice)}
                             </span>
-                            <span className="text-sm text-dark-grayish-blue line-through pl-2">
+                            <span className="text-sm text-dark-grayish-blue line-through">
                                 {formatter.format(price)}
                             </span>
                         </>

@@ -19,12 +19,12 @@ export default async function Home() {
 
   return (
     <section className='flex justify-center items-center min-h-dvh gap-12 px-20 y-20 m-auto max-w-7xl'>
-      <div>
+      <div className="container xl:min-w-md max-w-3xl">
         <ProductGallery gallery={product.gallery} name={product.name} />
       </div>
-      <section className="container mx-auto px-6 pt-5 sm:pt-10 lg:pt-5 pb-20 lg:pb-5 lg:pr-0 lg:pl-7 xl:ml-1">
+      <div className="container mx-auto px-6 pt-5 sm:pt-10 lg:pt-5 pb-20 lg:pb-5 lg:pr-0 lg:pl-7 xl:ml-1">
         <ProductDescription {...product}/>
-      </section>
+      </div>
     </section>
   )
 }

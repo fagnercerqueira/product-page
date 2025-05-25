@@ -21,6 +21,7 @@ const product: Product = {
         "/assets/img/2.png",
         "/assets/img/3.png",
         "/assets/img/4.png",
+        "/assets/img/5.png",
     ]
 }
 
