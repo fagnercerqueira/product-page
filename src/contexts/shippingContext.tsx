@@ -1,33 +1,5 @@
 import { createContext, useState, useContext } from "react";
-
-type SearchAddresss = (cep: string) => Promise<void>;
-
-interface ShippingType {
-  searchAddresss: SearchAddresss;
-  address: any;
-  shippingValue: number | null;
-  error: string | null;
-}
-
-interface EnderecoData {
-    cep: string;
-    logradouro: string;
-    complemento: string;
-    bairro: string;
-    localidade: string;
-    uf: string;
-    ibge: string;
-    gia: string;
-    ddd: string;
-    siafi: string;
-    erro?: boolean;
-}
-
-
-interface CalcularFrete {
-    (uf: string): void;
-}
-
+import type { SearchAddresss, ShippingType, EnderecoData, CalcularFrete } from "@/types/shipping";
 
 const Shipping = createContext<ShippingType>({
   searchAddresss: async () => {},

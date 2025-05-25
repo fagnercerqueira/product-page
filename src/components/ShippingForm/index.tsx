@@ -1,20 +1,8 @@
 "use client";
 import { useState } from "react";
 import { useShipping } from "@/contexts/shippingContext";
-
+import { cepFormatter, moneyFormatter } from "@/utils/formatter";
 interface HandleSubmitEvent extends React.FormEvent<HTMLFormElement> {}
-
-function formatCep(cep: string): string {
-  return cep
-    .replace(/\D/g, '') 
-    .slice(0, 8)
-    .replace(/^(\d{5})(\d{1,3})$/, '$1-$2'); 
-}
-
-const formatter = new Intl.NumberFormat("pt-BR", {
-  style: "currency",
-  currency: "BRL",
-});
 
 export default function ShippingForm() {
     const [cep, setCep] = useState("");
@@ -38,7 +26,7 @@ export default function ShippingForm() {
                     type="text"
                     value={cep}
                     onChange={(e) => {
-                        const masked = formatCep(e.target.value);
+                        const masked = cepFormatter(e.target.value);
                         setCep(masked);
                     }}
                     className="col-span-3 border p-2 w-full rounded-lg"
@@ -63,7 +51,7 @@ export default function ShippingForm() {
 
             {shippingValue !== null && (
                 <div className="mt-2">
-                    <h4 className="font-semibold">Frete estimado: {formatter.format(shippingValue)}</h4>
+                    <h4 className="font-semibold">Frete estimado: {moneyFormatter.format(shippingValue)}</h4>
                 </div>
             )}
         </div>

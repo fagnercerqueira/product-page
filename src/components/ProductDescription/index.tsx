@@ -1,10 +1,7 @@
 import type { Product } from "@/types/product";
 import SkuSelector from "@/components/SkuSelector";
 import ShippingForm from "@/components/ShippingForm";
-const formatter = new Intl.NumberFormat("pt-BR", {
-  style: "currency",
-  currency: "BRL",
-});
+import { moneyFormatter } from "@/utils/formatter";
 
 export default function ProductDescription(product: Product) {
 
@@ -26,15 +23,15 @@ export default function ProductDescription(product: Product) {
                     bestPrice ? (
                         <>
                             <span className="text-3xl sm:text-4xl text-very-dark-blue">
-                                {formatter.format(bestPrice)}
+                                {moneyFormatter.format(bestPrice)}
                             </span>
                             <span className="text-sm text-dark-grayish-blue line-through">
-                                {formatter.format(price)}
+                                {moneyFormatter.format(price)}
                             </span>
                         </>
                     ) : (
                         <span className="text-3xl sm:text-4xl text-very-dark-blue">
-                            {formatter.format(price)}
+                            {moneyFormatter.format(price)}
                         </span>
                     )
                 }
