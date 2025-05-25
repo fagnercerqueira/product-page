@@ -1,24 +1,24 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { SlBasket } from "react-icons/sl";
-import type { Product, Dimension } from "@/types/product";
+import type { ProductType, DimensionType } from "@/types/product";
 import Cookies from 'js-cookie';
 
-type SkuSelectorProps = Pick<Product, "dimensions" | "dimensionsMap">;
+type SkuSelectorProps = Pick<ProductType, "dimensions" | "dimensionsMap">;
 
-type DimensionsMap = Record<string, string[]>;
+type DimensionsMapType = Record<string, string[]>;
 
 interface ChangeVariationsData {
   dimension: string;
   option: string;
 }
 
-interface Variation {
+interface VariationType {
   dimension: string;
   option: string;
 }
 
-function groupDimensions(dimensions: Dimension[], dimensionsMap: DimensionsMap) {
+function groupDimensions(dimensions: DimensionType[], dimensionsMap: DimensionsMapType) {
   return dimensions.map((dim) => ({
     ...dim,
     options: dimensionsMap[dim.slug] || []
@@ -26,7 +26,7 @@ function groupDimensions(dimensions: Dimension[], dimensionsMap: DimensionsMap) 
 }
 
 function SkuSelector({ dimensions, dimensionsMap }: SkuSelectorProps) {
-  const [selectedVariations, setSelectedVariations] = useState<Variation[]>([]);
+  const [selectedVariations, setSelectedVariations] = useState<VariationType[]>([]);
   const [qty, setQty] = useState<number>(1);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ function SkuSelector({ dimensions, dimensionsMap }: SkuSelectorProps) {
     }
   }, []);
 
-  const isSelected = ({ dimension, option }: Variation) => {
+  const isSelected = ({ dimension, option }: VariationType) => {
     return selectedVariations.some(v => v.dimension === dimension && v.option === option);
   };
 

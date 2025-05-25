@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import type { SearchAddresss, ShippingType, EnderecoData, CalcularFrete } from "@/types/shipping";
+import type { SearchAddresssType, ShippingType, ShippingDataType, ShippingCalculateType } from "@/types/shipping";
 
 const Shipping = createContext<ShippingType>({
   searchAddresss: async () => {},
@@ -13,16 +13,16 @@ export const useShipping = () => useContext(Shipping);
 import { ReactNode } from "react";
 
 export const Shippingrovider = ({ children }: { children: ReactNode }) => {
-    const [address, setAddress] = useState<EnderecoData | null>(null);
+    const [address, setAddress] = useState<ShippingDataType | null>(null);
     const [shippingValue, setShippingValue] = useState<number | null>(null);
     const [error, setError] = useState(null);
 
-    const searchAddresss: SearchAddresss = async (cep: string) => {
+    const searchAddresss: SearchAddresssType = async (cep: string) => {
         try {
             setError(null);
             setShippingValue(null);
             const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-            const enderecoData: EnderecoData = await response.json();
+            const enderecoData: ShippingDataType = await response.json();
 
             if (enderecoData.erro) {
                 throw new Error("CEP inválido.");
@@ -38,7 +38,7 @@ export const Shippingrovider = ({ children }: { children: ReactNode }) => {
         }
     };
 
-    const calcularFrete: CalcularFrete = (uf: string) => {
+    const calcularFrete: ShippingCalculateType = (uf: string) => {
             let valor = 0;
 
             const sudeste: string[] = ["SP", "RJ", "MG", "ES"];

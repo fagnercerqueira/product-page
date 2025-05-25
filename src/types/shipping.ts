@@ -1,13 +1,13 @@
-export type SearchAddresss = (cep: string) => Promise<void>;
+export type SearchAddresssType = (cep: string) => Promise<void>;
 
 export type ShippingType = {
-  searchAddresss: SearchAddresss;
+  searchAddresss: SearchAddresssType;
   address: any;
   shippingValue: number | null;
   error: string | null;
 }
 
-export type EnderecoData = {
+export type ShippingDataType = {
     cep: string;
     logradouro: string;
     complemento: string;
@@ -21,6 +21,6 @@ export type EnderecoData = {
     erro?: boolean;
 }
 
-export type CalcularFrete = {
+export type ShippingCalculateType = {
     (uf: string): void;
 }

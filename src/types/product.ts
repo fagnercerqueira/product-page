@@ -1,15 +1,15 @@
 
-export type Dimension = {
+export type DimensionType = {
   slug: string;
   title: string;
 };
 
-export type Product = {
+export type ProductType = {
   skuId: number;
   available: boolean;
   name: string;
   brand: string;
-  dimensions: Dimension[]; 
+  dimensions: DimensionType[]; 
   dimensionsMap: {
     [key: string]: string[]; 
   };
